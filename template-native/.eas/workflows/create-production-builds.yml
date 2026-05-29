@@ -1,0 +1,45 @@
+name: Create Production Builds
+
+on:
+  push:
+    branches: ['main']
+  workflow_dispatch: {}
+
+concurrency:
+  cancel_in_progress: true
+  group: ${{ workflow.filename }}-${{ github.ref }}
+
+defaults:
+  tools:
+    node: 20
+
+jobs:
+  verify:
+    name: Verify
+    environment: production
+    steps:
+      - uses: eas/checkout
+      - uses: eas/install_node_modules
+      - name: Lint
+        run: npm run lint
+      - name: Typecheck
+        run: npm run typecheck
+
+  build_android:
+    name: Build Android (production)
+    needs: [verify]
+    environment: production
+    type: build
+    params:
+      platform: android
+      profile: production
+
+  build_ios:
+    name: Build iOS (production)
+    needs: [verify]
+    environment: production
+    type: build
+    params:
+      platform: ios
+      profile: production
+

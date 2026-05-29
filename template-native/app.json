@@ -1,11 +1,11 @@
 {
   "expo": {
-    "name": "template-native",
-    "slug": "template-native",
+    "name": "Dailly",
+    "slug": "dailly",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "templatenative",
+    "scheme": "native",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "splash": {
@@ -14,14 +14,17 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
+      "bundleIdentifier": "com.mandeltech.dailly",
       "supportsTablet": true
     },
     "android": {
+      "package": "com.mandeltech.dailly",
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "edgeToEdgeEnabled": true
+      "edgeToEdgeEnabled": true,
+      "predictiveBackGestureEnabled": false
     },
     "web": {
       "bundler": "metro",
@@ -29,10 +32,19 @@
       "favicon": "./assets/images/favicon.png"
     },
     "plugins": [
-      "expo-router"
+      "expo-router",
+      "@react-native-community/datetimepicker",
+      "expo-web-browser"
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "owner": "mandel-tech",
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "70b84ad2-781c-402c-ad3a-16b9cae64180"
+      }
     }
   }
 }

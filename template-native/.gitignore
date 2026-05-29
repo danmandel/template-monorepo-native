@@ -26,12 +26,21 @@ npm-debug.*
 yarn-debug.*
 yarn-error.*
 
+# Bun
+bun.lock
+bun.lockb
+
 # macOS
 .DS_Store
 *.pem
 
 # local env files
+.env
 .env*.local
 
 # typescript
 *.tsbuildinfo
+
+# generated native folders
+/ios
+/android
